@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+.toast-buttons {
+    position: absolute;
+    top: -100%;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    background-size: 600px;
+    background-repeat: repeat;
+}
+
+.main-wrapper {
+    height: 70vh !important;
+}
+
+.main-wrapper .row:first-child {
+    background-color: #dddddd69;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
