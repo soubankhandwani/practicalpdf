@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKKNY9DQ82"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-ZKKNY9DQ82');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8552580751183583"
+     crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-8177724829165832?ers=1" nonce="pZGEQYSoL9leDgSAoBxkpQ"></script><script nonce="pZGEQYSoL9leDgSAoBxkpQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script> -->
+    <title>PDF Merger</title>
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="icon" type="image/x-icon" href="static/image/favicon.png">
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="static/logo.png" alt="Bhavans Practical" width="50" height="50">
+                Bhavans Practical
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Main Start -->
+    <div class="main-wrapper container d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-center flex-column">
+                    <h4 class="text">Step 1</h4>
+                    <p class="text">Upload your journal file here (multiple pages file) <i class="fa fa-arrow-down"></i>
+                    </p>
+                    <div class="input-group mb-3 w-75">
+                        <input class="form-control" type="file" id="multiplePagesPDF" onchange="updateTillPage()"
+                            accept=".pdf" required />
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="fromPage">From Page:</label>
+                                <input id="fromPage" class="form-control" type="number" min="1" value="1">
+                            </div>
+
+                            <div class="col-6">
+                                <label for="tillPage">Till Page:</label>
+                                <input id="tillPage" class="form-control" type="number" min="1" value="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex align-items-center justify-content-center flex-column">
+                    <h4 class="text">Step 2</h4>
+                    <p class="text">Upload your journal sheet here (single page file) <i class="fa fa-arrow-down"></i>
+                    </p>
+                    <div class="input-group mb-3 w-75">
+                        <input class="form-control" type="file" id="singlePagePDF" accept=".pdf" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4" id="action-section">
+                <div class="col-md-12 d-flex align-items-center justify-content-center" id="action-buttons">
+                    <button class="btn btn-primary rounded-5 px-4 py-2" onclick="mergePDFs()">Merge PDFs</button>
+                </div>
+            </div>
+
+            <div id="progressContainer" class="my-4 d-flex align-items-center justify-content-center">
+                <!-- <div id="progressBar" style="background-color: black; height: 3px; width: 0%;"></div> -->
+                <div class="progress w-75" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar"
+                        style="width: 0%">
+                        Click on Merge to start merging</div>
+                </div>
+                <!-- <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8552580751183583"
+                    crossorigin="anonymous"></script>
+                Ad1
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552580751183583"
+                    data-ad-slot="5029518405" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script> -->
+            </div>
+
+            <!-- Preview PDF for direct print without download Start-->
+            <a href="#action-section" id="scroll-click" style="visibility: hidden;"></a>
+            <div id="pdfPreview"></div>
+            <!-- Preview PDF for direct print without download End-->
+        </div>
+    </div>
+    <!-- Main End -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8552580751183583"
+        crossorigin="anonymous"></script> -->
+    <!-- Ad1 -->
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552580751183583" data-ad-slot="5029518405"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script> -->
+
+    <!-- <h1>PDF Merger</h1> -->
+    <!-- <input type="file" id="multiplePagesPDF" accept=".pdf" />
+    <input type="file" id="singlePagePDF" accept=".pdf" /> -->
+    <!-- <button onclick="mergePDFs()">Merge PDFs</button> -->
+
+    <!-- Progress Bar Start -->
+    <!-- <div id="progressContainer"> -->
+    <!-- <div id="progressBar" style="background-color: black; height: 3px; width: 0%;"></div> -->
+    <!-- <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" style="width: 0%">
+                Click on Merge to start merging</div>
+        </div>
+    </div> -->
+    <!-- Progress Bar End -->
+
+    <!-- Preview PDF for direct print without download Start-->
+    <!-- <div id="pdfPreview"></div> -->
+    <!-- Preview PDF for direct print without download End-->
+
+    <!-- Upload PDF only error -->
+    <button type="button" class="btn btn-primary toast-buttons error-pdf-only" id="liveToastBtn"
+        style="visibility: hidden;"></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <!-- <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg> -->
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#FF0000"></rect>
+                </svg>
+                <strong class="me-auto">Error! Something went wrong</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Kindly upload PDF files!
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Sheet Only error -->
+    <button type="button" class="btn btn-primary toast-buttons error-single-sheet-only" id="errorSingleSheetBtn"
+        style="visibility: hidden;"></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorSingleSheet" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <!-- <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg> -->
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#FF0000"></rect>
+                </svg>
+                <strong class="me-auto">Error! Something went wrong</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Kindly upload single sheet file in step 2
+            </div>
+        </div>
+    </div>
+
+    <!-- Invalid Page Numbers Error -->
+    <button type="button" class="btn btn-primary toast-buttons ipn-error" id="ipnBtn"
+        style="visibility: hidden;"></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="ipnToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <!-- <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg> -->
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#FF0000"></rect>
+                </svg>
+                <strong class="me-auto">Error! Something went wrong</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Please enter proper page numbers to print!
+            </div>
+        </div>
+    </div>
+
+    <!-- Success -->
+    <button type="button" class="btn btn-primary toast-buttons error-single-sheet-only" id="successBtn"
+        style="visibility: hidden;"></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <!-- <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg> -->
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#00FF00"></rect>
+                </svg>
+                <strong class="me-auto">Hurray!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Your merged file is ready to download or print!
+            </div>
+        </div>
+    </div>
+
+    <script src="js/pdf-lib.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.js"></script> -->
+    <script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+        integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/snippets.js"></script>
+</body>
+
+</html>
